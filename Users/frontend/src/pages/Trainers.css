@@ -1,0 +1,314 @@
+/* ========================================
+   TRAINERS BANNER
+======================================== */
+
+.trainers-banner {
+  min-height: 230px;
+  display: flex;
+  align-items: center;
+  padding: 40px 6%;
+
+  background:
+    linear-gradient(
+      rgba(0, 0, 0, 0.72),
+      rgba(0, 0, 0, 0.72)
+    ),
+    url("../assets/aboutMain.png") center/cover no-repeat;
+}
+
+.trainers-banner-content h1 {
+  color: #fff;
+  font-size: 55px;
+  margin-bottom: 15px;
+}
+
+.trainers-banner-content h1 span {
+  color: #e63946;
+}
+
+.trainers-banner-content p {
+  color: #fff;
+}
+
+.trainers-banner-content a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.trainers-banner-content p span {
+  color: #e63946;
+}
+
+
+/* ========================================
+   TRAINERS SECTION
+======================================== */
+
+.trainers-page {
+  padding: 90px 6%;
+  background: #111;
+}
+
+
+/* ========================================
+   SECTION HEADING
+======================================== */
+
+.trainers-heading {
+  max-width: 750px;
+  margin: 0 auto 55px;
+  text-align: center;
+}
+
+.section-label {
+  display: inline-block;
+  color: #e63946;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin-bottom: 12px;
+}
+
+.trainers-heading h2 {
+  color: #fff;
+  font-size: 42px;
+  margin-bottom: 18px;
+}
+
+.trainers-heading h2 span {
+  color: #e63946;
+}
+
+.trainers-heading p {
+  color: #aaa;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+
+/* ========================================
+   TRAINERS GRID
+======================================== */
+
+.trainers-page-container {
+  max-width: 1200px;
+  margin: auto;
+
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+}
+
+
+/* ========================================
+   TRAINER PROFILE CARD
+======================================== */
+
+.trainer-profile-card {
+  display: flex;
+  background: #1b1b1b;
+  border: 1px solid #2b2b2b;
+  border-radius: 12px;
+  overflow: hidden;
+
+  transition: 0.3s ease;
+}
+
+.trainer-profile-card:hover {
+  transform: translateY(-6px);
+  border-color: #e63946;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+}
+
+
+/* ========================================
+   TRAINER IMAGE
+======================================== */
+
+.trainer-profile-image {
+  width: 42%;
+  min-height: 370px;
+  flex-shrink: 0;
+}
+
+.trainer-profile-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+/* ========================================
+   TRAINER CONTENT
+======================================== */
+
+.trainer-profile-content {
+  flex: 1;
+  padding: 25px 22px;
+}
+
+.trainer-role {
+  color: #e63946;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.trainer-profile-content h3 {
+  color: #fff;
+  font-size: 24px;
+  margin: 12px 0;
+}
+
+
+/* ========================================
+   EXPERIENCE
+======================================== */
+
+.trainer-experience {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  color: #e63946;
+  font-size: 13px;
+  margin-bottom: 20px;
+}
+
+.trainer-experience svg {
+  font-size: 17px;
+}
+
+
+/* ========================================
+   SPECIALIZATION
+======================================== */
+
+.trainer-specialization {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.specialization-icon {
+  min-width: 42px;
+  height: 42px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: rgba(230, 57, 70, 0.12);
+  color: #e63946;
+  border-radius: 8px;
+  font-size: 20px;
+}
+
+.trainer-specialization h4 {
+  color: #fff;
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+.trainer-specialization p {
+  color: #aaa;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+
+/* ========================================
+   DESCRIPTION
+======================================== */
+
+.trainer-description {
+  color: #aaa;
+  font-size: 14px;
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+
+/* ========================================
+   CONTACT BUTTON
+======================================== */
+
+.trainer-contact-btn {
+  display: inline-block;
+  padding: 10px 18px;
+
+  background: #e63946;
+  color: #fff;
+
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 600;
+
+  border-radius: 5px;
+  transition: 0.3s ease;
+}
+
+.trainer-contact-btn:hover {
+  background: #c92f3c;
+}
+
+
+/* ========================================
+   RESPONSIVE DESIGN
+======================================== */
+
+@media (max-width: 1100px) {
+  .trainers-page-container {
+    grid-template-columns: 1fr;
+    max-width: 750px;
+  }
+}
+
+@media (max-width: 768px) {
+  .trainers-page {
+    padding: 70px 5%;
+  }
+
+  .trainers-heading h2 {
+    font-size: 35px;
+  }
+
+  .trainers-banner-content h1 {
+    font-size: 45px;
+  }
+}
+
+@media (max-width: 600px) {
+  .trainers-banner {
+    min-height: 200px;
+  }
+
+  .trainers-banner-content h1 {
+    font-size: 38px;
+  }
+
+  .trainer-profile-card {
+    flex-direction: column;
+  }
+
+  .trainer-profile-image {
+    width: 100%;
+    height: 300px;
+    min-height: auto;
+  }
+
+  .trainer-profile-content {
+    padding: 25px;
+  }
+}
+
+@media (max-width: 480px) {
+  .trainers-heading h2 {
+    font-size: 30px;
+  }
+
+  .trainer-profile-content h3 {
+    font-size: 22px;
+  }
+}

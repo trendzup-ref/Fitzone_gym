@@ -1,0 +1,251 @@
+/* Global Reset / Box Sizing for Navbar Scope */
+.navbar {
+  height: 85px;
+  width: 100%;
+  background: #0f172a; /* Dark background matching the sidebar */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 30px;
+  border-bottom: 1px solid #1e293b; /* Subtle dark border separator */
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  box-sizing: border-box;
+}
+
+/* Left Section */
+.leftSection {
+  min-width: 0; /* Prevents flex items from overflowing */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.leftSection h2 {
+  font-size: 23px;
+  color: #ffffff; /* White title for dark navbar */
+  font-weight: 700;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.leftSection p {
+  font-size: 13px;
+  color: #94a3b8; /* Muted slate text for subtitle */
+  margin-top: 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Right Section */
+.rightSection {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  flex-shrink: 0;
+}
+
+/* Notification */
+.notification {
+  position: relative;
+  background: #1e293b; /* Dark card background */
+  border: 1px solid #293548;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 17px;
+  color: #cbd5e1; /* Light icon color */
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.notification:hover {
+  background: #334155;
+  color: #ffffff;
+  border-color: #475569;
+}
+
+.notificationBadge {
+  position: absolute;
+  top: -4px;
+  right: -3px;
+  background: #ef4444;
+  color: white;
+  font-size: 10px;
+  font-weight: 600;
+  width: 17px;
+  height: 17px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Profile */
+.profileContainer {
+  position: relative;
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 8px;
+  transition: background 0.2s ease;
+}
+
+.profile:hover {
+  background: #1e293b; /* Subtle hover effect on dark navbar */
+}
+
+.avatar {
+  font-size: 38px;
+  color: #8b5cf6; /* Accent purple color for avatar */
+  flex-shrink: 0;
+}
+
+.profileInfo {
+  text-align: left;
+}
+
+.profileInfo h4 {
+  font-size: 14px;
+  color: #ffffff; /* White username */
+  font-weight: 600;
+}
+
+.profileInfo span {
+  font-size: 12px;
+  color: #94a3b8; /* Muted role text */
+}
+
+.arrow {
+  font-size: 12px;
+  color: #94a3b8;
+  transition: transform 0.2s ease;
+}
+
+/* Dropdown Menu (Kept light for crisp readability against dark navbar) */
+.dropdown {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  width: 190px;
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 8px;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.2), 0 8px 10px -6px rgba(0, 0, 0, 0.2);
+  z-index: 100;
+  animation: dropdownFade 0.15s ease-out;
+}
+
+@keyframes dropdownFade {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.dropdown button {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  background: transparent;
+  border: none;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #334155;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.dropdown button:hover {
+  background: #f1eaff;
+  color: #7c3aed;
+}
+
+.dropdown hr {
+  border: none;
+  border-top: 1px solid #e5e7eb;
+  margin: 6px 0;
+}
+
+.dropdown .logout {
+  color: #ef4444;
+}
+
+.dropdown .logout:hover {
+  background: #fef2f2;
+  color: #dc2626;
+}
+
+/* Responsive Media Queries */
+@media (max-width: 768px) {
+  .navbar {
+    height: 70px;
+    padding: 0 20px;
+  }
+
+  .leftSection h2 {
+    font-size: 20px;
+  }
+
+  .rightSection {
+    gap: 15px;
+  }
+}
+
+@media (max-width: 600px) {
+  .navbar {
+    padding: 0 15px;
+    height: 65px;
+  }
+
+  .leftSection h2 {
+    font-size: 17px;
+  }
+
+  .leftSection p {
+    display: none; /* Hide subtitle on compact screens to save space */
+  }
+
+  .rightSection {
+    gap: 10px;
+  }
+
+  /* Hide profile text and arrow badge on mobile screens, leaving only the avatar */
+  .profileInfo,
+  .arrow {
+    display: none;
+  }
+
+  .profile {
+    padding: 2px;
+  }
+
+  .avatar {
+    font-size: 34px;
+  }
+
+  .dropdown {
+    right: -10px; /* Adjust dropdown alignment for small viewports */
+  }
+}

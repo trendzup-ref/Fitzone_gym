@@ -1,0 +1,148 @@
+.programsSection {
+  width: 100%;
+  padding: 80px 6%;
+  background: #141414; /* Dark Black Background */
+}
+
+.sectionLabel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  color: #ed1c2e;
+  font-size: 14px;
+  font-weight: 800;
+  margin-bottom: 15px;
+}
+
+.sectionLabel span {
+  width: 30px;
+  height: 2px;
+  background: #ed1c2e;
+}
+
+/* Heading */
+.programsHeading {
+  text-align: center;
+  max-width: 650px;
+  margin: 0 auto 50px;
+}
+
+.programsHeading h2 {
+  font-size: 36px;
+  color: #ffffff; /* White text for dark background */
+  margin: 15px 0;
+  font-weight: 800;
+}
+
+.programsHeading h2 span {
+  color: #ed1c2e;
+}
+
+.programsHeading p {
+  color: #b0b0b0; /* Light grey text for readability */
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+/* Programs Grid */
+.programsContainer {
+  max-width: 1200px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
+}
+
+/* Program Card */
+.programCard {
+  background: #1c1c1c; /* Dark card background */
+  padding: 35px 25px;
+  border-radius: 12px;
+  border: 1px solid #2a2a2a; /* Subtle dark border */
+  transition: 0.3s ease;
+}
+
+.programCard:hover {
+  transform: translateY(-8px);
+  border-color: #ed1c2e;
+  box-shadow: 0 10px 25px rgba(237, 28, 46, 0.15);
+}
+
+/* Icon */
+.programIcon {
+  width: 65px;
+  height: 65px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(237, 28, 46, 0.1);
+  color: #ed1c2e;
+  border-radius: 12px;
+  font-size: 30px;
+  margin-bottom: 25px;
+  transition: 0.3s ease;
+}
+
+.programCard:hover .programIcon {
+  background: #ed1c2e;
+  color: #fff;
+}
+
+.programCard h3 {
+  font-size: 19px;
+  color: #ffffff; /* White title */
+  margin-bottom: 15px;
+}
+
+.programCard p {
+  color: #b0b0b0; /* Light description text */
+  font-size: 14px;
+  line-height: 1.7;
+  min-height: 95px;
+}
+
+/* Learn More */
+.programLink {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
+  background: transparent;
+  border: none;
+  color: #ed1c2e;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.programLink:hover {
+  gap: 16px;
+}
+
+/* Tablet */
+@media (max-width: 1000px) {
+  .programsContainer {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .programsSection {
+    padding: 60px 20px;
+  }
+
+  .programsContainer {
+    grid-template-columns: 1fr;
+  }
+
+  .programsHeading h2 {
+    font-size: 27px;
+  }
+
+  .programCard p {
+    min-height: auto;
+  }
+}

@@ -1,0 +1,101 @@
+.card {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 22px;
+  background: #111827; /* Dark card background */
+  border: 1px solid #1f2937; /* Subtle dark border */
+  border-radius: 14px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Soft shadow for depth */
+  box-sizing: border-box;
+  width: 100%;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.card:hover {
+  border-color: #374151; /* Slight hover border highlight */
+}
+
+.icon {
+  width: 65px;
+  height: 65px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 14px;
+  font-size: 28px;
+  flex-shrink: 0; /* Prevents icon from shrinking on narrow screens */
+}
+
+.content {
+  flex: 1;
+  min-width: 0; /* Prevents text overflow inside flex child */
+}
+
+.content p {
+  color: #9ca3af; /* Muted light gray for title text */
+  font-size: 14px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.content h2 {
+  font-size: 27px;
+  margin-top: 7px;
+  color: #f9fafb; /* Crisp white for count number */
+  font-weight: 700;
+}
+
+.growth {
+  color: #4ade80; /* Soft eye-friendly green for positive growth */
+  font-size: 13px;
+  font-weight: 600;
+  display: inline-block;
+  margin-top: 4px;
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 768px) {
+  .card {
+    padding: 18px;
+    gap: 14px;
+  }
+
+  .icon {
+    width: 55px;
+    height: 55px;
+    font-size: 24px;
+  }
+
+  .content h2 {
+    font-size: 23px;
+  }
+}
+
+@media (max-width: 480px) {
+  .card {
+    padding: 14px;
+    gap: 12px;
+  }
+
+  .icon {
+    width: 48px;
+    height: 48px;
+    font-size: 20px;
+    border-radius: 10px;
+  }
+
+  .content p {
+    font-size: 12px;
+  }
+
+  .content h2 {
+    font-size: 20px;
+    margin-top: 4px;
+  }
+
+  .growth {
+    font-size: 11px;
+  }
+}

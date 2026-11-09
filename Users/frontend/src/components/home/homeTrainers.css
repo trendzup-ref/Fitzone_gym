@@ -1,0 +1,106 @@
+.trainers-section {
+  padding: 90px 6%;
+  background: #090909;
+}
+
+.trainers-heading {
+  text-align: center;
+  max-width: 650px;
+  margin: 0 auto 45px;
+}
+
+.trainers-heading span {
+  color: #e63946;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.trainers-heading h2 {
+  font-size: 36px;
+  margin: 15px 0;
+  color: #171717;
+}
+
+.trainers-heading strong {
+  color: #e63946;
+}
+
+.trainers-heading p {
+  color: #666;
+  line-height: 1.7;
+}
+
+.trainers-container {
+  max-width: 1200px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+}
+
+.trainer-card {
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: 0.3s;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.06);
+}
+
+.trainer-card:hover {
+  transform: translateY(-8px);
+}
+
+.trainer-image {
+  height: 320px;
+  overflow: hidden;
+}
+
+.trainer-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: 0.4s;
+}
+
+.trainer-card:hover img {
+  transform: scale(1.06);
+}
+
+.trainer-info {
+  text-align: center;
+  padding: 22px 15px;
+}
+
+.trainer-info h3 {
+  color: #171717;
+  font-size: 21px;
+  margin-bottom: 8px;
+}
+
+.trainer-role {
+  color: #e63946;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.trainer-experience {
+  padding-top: 10px;
+  color: #777;
+  font-size: 14px;
+}
+
+@media (max-width: 900px) {
+  .trainers-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .trainers-container {
+    grid-template-columns: 1fr;
+  }
+
+  .trainers-heading h2 {
+    font-size: 28px;
+  }
+}

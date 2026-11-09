@@ -1,0 +1,146 @@
+.footer {
+  background: #111;
+  color: #fff;
+  padding: 70px 6% 0;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1.3fr;
+  gap: 40px;
+  padding-bottom: 50px;
+}
+
+/* About */
+
+.footer-about h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.footer-about h2 svg {
+  color: #e63946;
+}
+
+.footer-about h2 span {
+  color: #e63946;
+}
+
+.footer-about p {
+  color: #aaa;
+  line-height: 1.8;
+  margin-bottom: 22px;
+}
+
+/* Social Icons */
+
+.footer-socials {
+  display: flex;
+  gap: 12px;
+}
+
+.footer-socials a {
+  width: 38px;
+  height: 38px;
+  background: #252525;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.footer-socials a:hover {
+  background: #e63946;
+  transform: translateY(-4px);
+}
+
+/* Links */
+
+.footer h3 {
+  font-size: 19px;
+  margin-bottom: 22px;
+  position: relative;
+}
+
+.footer h3::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -9px;
+  width: 35px;
+  height: 3px;
+  background: #e63946;
+}
+
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links li {
+  margin-bottom: 13px;
+}
+
+.footer-links a {
+  color: #aaa;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.footer-links a:hover {
+  color: #e63946;
+  padding-left: 5px;
+}
+
+/* Contact */
+
+.footer-contact p {
+  display: flex;
+  gap: 12px;
+  color: #aaa;
+  margin-bottom: 18px;
+  line-height: 1.6;
+}
+
+.footer-contact svg {
+  color: #e63946;
+  margin-top: 4px;
+  flex-shrink: 0;
+}
+
+/* Bottom */
+
+.footer-bottom {
+  border-top: 1px solid #333;
+  text-align: center;
+  padding: 22px 0;
+}
+
+.footer-bottom p {
+  color: #888;
+  font-size: 14px;
+}
+
+/* Responsive */
+
+@media (max-width: 900px) {
+  .footer-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 550px) {
+  .footer-container {
+    grid-template-columns: 1fr;
+    gap: 35px;
+  }
+
+  .footer {
+    padding-top: 50px;
+  }
+}

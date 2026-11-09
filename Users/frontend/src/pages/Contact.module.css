@@ -1,0 +1,378 @@
+/* ========================================
+   CONTACT BANNER
+======================================== */
+
+.contactBanner {
+  min-height: 230px;
+  display: flex;
+  align-items: center;
+  padding: 40px 6%;
+
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.72), rgba(0, 0, 0, 0.72)),
+    url("../assets/aboutMain.png") center/cover no-repeat;
+}
+
+.bannerContent h1 {
+  color: #fff;
+  font-size: 55px;
+  margin-bottom: 15px;
+}
+
+.bannerContent h1 span {
+  color: #e63946;
+}
+
+.bannerContent p {
+  color: #fff;
+}
+
+.bannerContent a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.bannerContent p span {
+  color: #e63946;
+}
+
+
+/* ========================================
+   CONTACT SECTION
+======================================== */
+
+.contactSection {
+  padding: 90px 6%;
+  background: #111;
+}
+
+
+/* ========================================
+   SECTION HEADING
+======================================== */
+
+.contactHeading {
+  max-width: 750px;
+  margin: 0 auto 55px;
+  text-align: center;
+}
+
+.sectionLabel {
+  display: inline-block;
+  color: #e63946;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin-bottom: 12px;
+}
+
+.contactHeading h2,
+.mapHeading h2 {
+  color: #fff;
+  font-size: 42px;
+  margin-bottom: 18px;
+}
+
+.contactHeading h2 span,
+.mapHeading h2 span {
+  color: #e63946;
+}
+
+.contactHeading p {
+  color: #aaa;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+
+/* ========================================
+   CONTACT CONTAINER
+======================================== */
+
+.contactContainer {
+  max-width: 1200px;
+  margin: auto;
+
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: 35px;
+}
+
+
+/* ========================================
+   CONTACT INFORMATION
+======================================== */
+
+.contactInfo {
+  padding: 40px 30px;
+  background: #1b1b1b;
+  border-radius: 10px;
+  border: 1px solid #2b2b2b;
+}
+
+.contactInfo h3,
+.contactFormContainer h3 {
+  color: #fff;
+  font-size: 25px;
+  margin-bottom: 15px;
+}
+
+.contactInfoText {
+  color: #aaa;
+  font-size: 14px;
+  line-height: 1.7;
+  margin-bottom: 35px;
+}
+
+
+/* ========================================
+   CONTACT INFO ITEMS
+======================================== */
+
+.contactInfoItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+  margin-bottom: 28px;
+}
+
+.contactInfoIcon {
+  min-width: 45px;
+  height: 45px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: rgba(230, 57, 70, 0.12);
+  color: #e63946;
+
+  border-radius: 8px;
+  font-size: 18px;
+}
+
+.contactInfoItem h4 {
+  color: #fff;
+  font-size: 16px;
+  margin-bottom: 7px;
+}
+
+.contactInfoItem p {
+  color: #aaa;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+
+/* ========================================
+   CONTACT FORM
+======================================== */
+
+.contactFormContainer {
+  padding: 40px;
+  background: #1b1b1b;
+  border: 1px solid #2b2b2b;
+  border-radius: 10px;
+}
+
+.contactFormContainer > p {
+  color: #aaa;
+  font-size: 14px;
+  margin-bottom: 30px;
+}
+
+
+/* ========================================
+   FORM ROW
+======================================== */
+
+.formRow {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 22px;
+}
+
+.formGroup label {
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.formGroup input,
+.formGroup select,
+.formGroup textarea {
+  width: 100%;
+  padding: 13px 15px;
+
+  background: #111;
+  color: #fff;
+
+  border: 1px solid #333;
+  border-radius: 5px;
+
+  font-size: 14px;
+  font-family: inherit;
+  outline: none;
+  transition: 0.3s ease;
+}
+
+.formGroup input:focus,
+.formGroup select:focus,
+.formGroup textarea:focus {
+  border-color: #e63946;
+}
+
+.formGroup input::placeholder,
+.formGroup textarea::placeholder {
+  color: #777;
+}
+
+.formGroup select {
+  cursor: pointer;
+}
+
+.formGroup textarea {
+  resize: vertical;
+}
+
+
+/* ========================================
+   SUBMIT BUTTON
+======================================== */
+
+.contactSubmitBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+
+  padding: 13px 28px;
+
+  background: #e63946;
+  color: #fff;
+
+  border: none;
+  border-radius: 5px;
+
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+
+  transition: 0.3s ease;
+}
+
+.contactSubmitBtn:hover {
+  background: #c92f3c;
+  transform: translateY(-2px);
+}
+
+
+/* ========================================
+   SUCCESS MESSAGE
+======================================== */
+
+.successMessage {
+  color: #4ade80;
+  font-size: 14px;
+  margin-top: 20px;
+}
+
+
+/* ========================================
+   GOOGLE MAP
+======================================== */
+
+.contactMapSection {
+  padding: 80px 6%;
+  background: #151515;
+}
+
+.mapHeading {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.mapContainer {
+  max-width: 1200px;
+  margin: auto;
+
+  overflow: hidden;
+  border-radius: 10px;
+  border: 1px solid #333;
+}
+
+.mapContainer iframe {
+  display: block;
+}
+
+
+/* ========================================
+   RESPONSIVE DESIGN
+======================================== */
+
+@media (max-width: 900px) {
+  .contactContainer {
+    grid-template-columns: 1fr;
+  }
+
+  .bannerContent h1 {
+    font-size: 45px;
+  }
+}
+
+@media (max-width: 768px) {
+  .contactSection {
+    padding: 70px 5%;
+  }
+
+  .contactHeading h2,
+  .mapHeading h2 {
+    font-size: 35px;
+  }
+
+  .contactFormContainer {
+    padding: 30px 25px;
+  }
+}
+
+@media (max-width: 600px) {
+  .contactBanner {
+    min-height: 200px;
+  }
+
+  .bannerContent h1 {
+    font-size: 38px;
+  }
+
+  .formRow {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .contactInfo,
+  .contactFormContainer {
+    padding: 25px 20px;
+  }
+
+  .contactMapSection {
+    padding: 60px 5%;
+  }
+}
+
+@media (max-width: 480px) {
+  .contactHeading h2,
+  .mapHeading h2 {
+    font-size: 30px;
+  }
+
+  .contactSubmitBtn {
+    width: 100%;
+  }
+}
