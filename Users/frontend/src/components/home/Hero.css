@@ -10,6 +10,12 @@
   color: #fff;
 }
 
+.stat-icon {
+  font-size: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 /* Dark Overlay */
 
 .hero-overlay {

@@ -1,54 +1,65 @@
 .chartContainer {
   width: 100%;
-  background: #111827; /* Dark card background */
-  padding: 24px;
-  border-radius: 14px;
-  border: 1px solid #1f2937; /* Subtle dark border */
+  background: linear-gradient(180deg, #111827 0%, #0f172a 100%);
+  padding: clamp(16px, 3vw, 24px);
+  border-radius: 16px;
+  border: 1px solid #1f2937;
   box-sizing: border-box;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.35);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  transition: border-color 0.2s ease;
+}
+
+.chartContainer:hover {
+  border-color: #374151;
 }
 
 .chartHeader {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 25px;
   gap: 15px;
 }
 
 .chartHeader h2 {
-  font-size: 18px;
-  color: #f9fafb; /* Crisp white title */
+  margin: 0;
+  font-size: clamp(16px, 2vw, 18px);
+  color: #f9fafb;
   font-weight: 600;
+  letter-spacing: -0.01em;
 }
 
 .chartHeader p {
-  font-size: 13px;
-  color: #9ca3af; /* Muted subtitle text */
-  margin-top: 6px;
+  margin: 4px 0 0;
+  font-size: clamp(12px, 1.5vw, 13px);
+  color: #9ca3af;
 }
 
 /* Filter / Select Dropdown Styling for Dark Mode */
 .filter {
-  padding: 9px 12px;
+  padding: 8px 12px;
   border: 1px solid #374151;
   border-radius: 8px;
-  background: #1f2937; /* Dark background for dropdown */
-  color: #d1d5db; /* Light text color */
+  background: #1f2937;
+  color: #e5e7eb;
   font-size: 12px;
+  font-weight: 500;
   outline: none;
   cursor: pointer;
-  transition: border-color 0.2s ease;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
 }
 
 .filter:hover,
 .filter:focus {
-  border-color: #8b5cf6; /* Purple highlight on hover/focus */
+  border-color: #8b5cf6;
+  background: #374151;
 }
 
 .chart {
   width: 100%;
-  height: 280px;
+  height: clamp(220px, 35vw, 280px);
 }
 
 /* Responsive Media Queries */
@@ -56,36 +67,17 @@
   .chartContainer {
     padding: 18px;
   }
-
-  .chart {
-    height: 260px;
-  }
 }
 
 @media (max-width: 600px) {
-  .chartContainer {
-    padding: 16px;
-  }
-
   .chartHeader {
     align-items: flex-start;
     flex-direction: column;
     gap: 12px;
   }
 
-  .chartHeader h2 {
-    font-size: 16px;
-  }
-
-  .chartHeader p {
-    font-size: 11px;
-  }
-
   .filter {
-    width: 100%; /* Make filter full-width on small mobile screens for easy tapping */
-  }
-
-  .chart {
-    height: 220px; /* Compact height for small screens */
+    width: 100%; /* Full width for easy mobile thumb taps */
+    text-align: left;
   }
 }

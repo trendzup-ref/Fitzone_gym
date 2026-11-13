@@ -2,6 +2,7 @@ import { useState, useEffect, useContext } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
 import { AdminContext } from "../../../context/AdminContext";
+import { toast } from "react-toastify";
 
 import {
   FaArrowLeft,
@@ -235,16 +236,16 @@ const EditMember = () => {
       const response = await updateMember(id, data);
 
       if (response.success) {
-        alert("Member details updated successfully!");
+        toast.success("Member details updated successfully!");
 
         navigate(`/admin/members/${id}`);
       } else {
-        alert(response.message || "Failed to update member.");
+        toast.error(response.message || "Failed to update member.");
       }
     } catch (error) {
       console.error("Update member error:", error);
 
-      alert(error.message || "Failed to update member.");
+      toast.error(error.message || "Failed to update member.");
     } finally {
       setSaving(false);
     }

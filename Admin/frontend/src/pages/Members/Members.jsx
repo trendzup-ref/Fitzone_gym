@@ -1,5 +1,6 @@
 import { useState, useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 import {
   FaUsers,
@@ -26,6 +27,7 @@ const Members = () => {
   const [members, setMembers] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
+  const [deletingId, setDeletingId] = useState(null);
 
   // Fetch Members
   const fetchMembers = async () => {
@@ -83,15 +85,11 @@ const Members = () => {
     (member) => member.status === "Expired"
   ).length;
 
-  // Delete Member
+  // Delete Member API
   const handleDelete = async (id) => {
-    const confirmDelete = window.confirm(
-      "Are you sure you want to delete this member?"
-    );
-
-    if (!confirmDelete) return;
-
     try {
+      setDeletingId(id);
+
       const response = await deleteMember(id);
 
       if (response.success) {
@@ -99,13 +97,71 @@ const Members = () => {
           prev.filter((member) => member._id !== id)
         );
 
-        alert("Member deleted successfully!");
+        toast.success("Member deleted successfully!");
       } else {
-        alert(response.message || "Failed to delete member.");
+        toast.error(
+          response.message || "Failed to delete member."
+        );
       }
     } catch (error) {
-      alert(error.message || "Something went wrong.");
+      console.error("Delete Member Error:", error);
+
+      toast.error(
+        error.message || "Something went wrong."
+      );
+    } finally {
+      setDeletingId(null);
     }
+  };
+
+  // Delete Confirmation Toast
+  const confirmDelete = (id) => {
+    toast(
+      ({ closeToast }) => (
+        <div>
+          <p>Are you sure you want to delete this member?</p>
+
+          <div style={{ display: "flex", gap: "10px" }}>
+            <button
+              onClick={() => {
+                closeToast();
+                handleDelete(id);
+              }}
+              style={{
+                background: "#dc2626",
+                color: "#fff",
+                border: "none",
+                padding: "7px 12px",
+                borderRadius: "5px",
+                cursor: "pointer",
+              }}
+            >
+              Yes, Delete
+            </button>
+
+            <button
+              onClick={closeToast}
+              style={{
+                background: "#6b7280",
+                color: "#fff",
+                border: "none",
+                padding: "7px 12px",
+                borderRadius: "5px",
+                cursor: "pointer",
+              }}
+            >
+              Cancel
+            </button>
+          </div>
+        </div>
+      ),
+      {
+        autoClose: false,
+        closeOnClick: false,
+        closeButton: false,
+        draggable: false,
+      }
+    );
   };
 
   // Navigation
@@ -136,7 +192,6 @@ const Members = () => {
     <div className={styles.container}>
 
       {/* Page Header */}
-
       <div className={styles.pageHeader}>
         <div>
           <h1>Members Management</h1>
@@ -153,7 +208,6 @@ const Members = () => {
       </div>
 
       {/* Statistics Cards */}
-
       <div className={styles.statsGrid}>
 
         <div className={styles.statCard}>
@@ -192,7 +246,6 @@ const Members = () => {
       </div>
 
       {/* Search and Filter */}
-
       <div className={styles.toolbar}>
         <div className={styles.searchBox}>
           <FaSearch />
@@ -201,6 +254,7 @@ const Members = () => {
             type="text"
             placeholder="Search by name or email..."
             value={search}
+            autoComplete="off"
             onChange={(e) => setSearch(e.target.value)}
           />
         </div>
@@ -218,7 +272,6 @@ const Members = () => {
       </div>
 
       {/* Members Table */}
-
       <div className={styles.tableContainer}>
 
         <div className={styles.tableHeader}>
@@ -283,7 +336,9 @@ const Members = () => {
 
                       <td>{member.phone || "N/A"}</td>
 
-                      <td>  {member.membership?.name || "N/A"}</td>
+                      <td>
+                        {member.membership?.name || "N/A"}
+                      </td>
 
                       <td>{formatDate(member.joinDate)}</td>
 
@@ -318,8 +373,9 @@ const Members = () => {
 
                           <button
                             className={styles.deleteAction}
-                            onClick={() => handleDelete(member._id)}
+                            onClick={() => confirmDelete(member._id)}
                             title="Delete Member"
+                            disabled={deletingId === member._id}
                           >
                             <FaTrash />
                           </button>

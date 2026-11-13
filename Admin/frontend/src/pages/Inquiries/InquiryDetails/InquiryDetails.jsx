@@ -1,6 +1,7 @@
 
 import { useState, useEffect, useContext } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import { toast } from "react-toastify";
 
 import {
   FaArrowLeft,
@@ -96,16 +97,16 @@ const InquiryDetails = () => {
 
         setAdminNote(response.inquiry.adminNote || "");
 
-        alert("Inquiry details and admin note saved successfully!");
+        toast.success("Inquiry details and admin note saved successfully!");
 
         navigate("/admin/inquiries");
       } else {
-        alert(response.message || "Failed to update inquiry.");
+        toast.error(response.message || "Failed to update inquiry.");
       }
     } catch (error) {
       console.error("Update Inquiry Error:", error);
 
-      alert(error.message || "Failed to update inquiry.");
+      toast.error(error.message || "Failed to update inquiry.");
     } finally {
       setSaving(false);
     }

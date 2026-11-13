@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-
+import { toast } from "react-toastify";
 import {
   FaUsers,
   FaUserCheck,
@@ -38,7 +38,7 @@ const Trainers = () => {
       }
     } catch (error) {
       console.error("Fetch Trainers Error:", error);
-      alert(error.message || "Failed to fetch trainers");
+      toast.error(error.message || "Failed to fetch trainers");
     } finally {
       setLoading(false);
     }
@@ -87,11 +87,11 @@ const Trainers = () => {
           prev.filter((trainer) => trainer._id !== id)
         );
 
-        alert("Trainer deleted successfully");
+        toast.success("Trainer deleted successfully");
       }
     } catch (error) {
       console.error("Delete Trainer Error:", error);
-      alert(error.message || "Failed to delete trainer");
+       toast.error(error.message || "Failed to delete trainer");
     }
   };
 

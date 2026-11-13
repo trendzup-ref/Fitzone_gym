@@ -1,28 +1,33 @@
 import { Link } from "react-router-dom";
+import {
+  FaUsers,
+  FaDumbbell,
+  FaMedal,
+  FaCalendarAlt,
+} from "react-icons/fa";
+
 import "./Hero.css";
 import { assest } from "../../assets/assests.js";
-
-
 
 function Hero() {
   const stats = [
     {
-      icon: "👥",
+      icon: <FaUsers />,
       number: "500+",
       label: "Active Members",
     },
     {
-      icon: "🏋️",
+      icon: <FaDumbbell />,
       number: "20+",
       label: "Expert Trainers",
     },
     {
-      icon: "🏅",
+      icon: <FaMedal />,
       number: "10+",
       label: "Fitness Programs",
     },
     {
-      icon: "📅",
+      icon: <FaCalendarAlt />,
       number: "5+",
       label: "Years of Excellence",
     },
@@ -34,12 +39,8 @@ function Hero() {
       style={{ backgroundImage: `url(${assest.heroimg})` }}
     >
       <div className="hero-overlay">
-
         <div className="hero-container">
-
-          {/* Hero Content */}
           <div className="hero-content">
-
             <span className="hero-tag">
               WELCOME TO FITZONE GYM
             </span>
@@ -63,17 +64,13 @@ function Hero() {
                 Explore Programs
               </Link>
             </div>
-
           </div>
-
         </div>
 
         {/* Statistics */}
         <div className="hero-stats">
-
           {stats.map((stat, index) => (
             <div className="stat-item" key={index}>
-
               <span className="stat-icon">
                 {stat.icon}
               </span>
@@ -82,18 +79,12 @@ function Hero() {
                 <h3>{stat.number}</h3>
                 <p>{stat.label}</p>
               </div>
-
             </div>
           ))}
-
         </div>
-
       </div>
     </section>
   );
 }
 
 export default Hero;
-
-
-

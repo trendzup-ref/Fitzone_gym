@@ -8,7 +8,8 @@ import {
   FaSignOutAlt,
   FaBars,
   FaTimes,
-  FaIdCard 
+  FaIdCard ,
+  FaBullhorn
 } from "react-icons/fa";
 
 import styles from "./Sidebar.module.css";
@@ -45,6 +46,7 @@ const handleLogout = async () => {
     { name: "Membership", path: "/admin/membership", icon: <FaIdCard /> },
     { name: "Trainers", path: "/admin/trainers", icon: <FaDumbbell /> },
     { name: "Inquiries", path: "/admin/inquiries", icon: <FaComments /> },
+    { name : "Announcements" , path: "/admin/announcements" , icon: <FaBullhorn/> }
   ];
 
   return (

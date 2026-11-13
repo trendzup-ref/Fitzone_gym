@@ -211,6 +211,7 @@ const AdminLogin = () => {
                   type={showPassword ? "text" : "password"}
                   name="password"
                   placeholder="Enter your password"
+                  autoComplete="off"
                   value={formData.password}
                   onChange={handleChange}
                 />
@@ -235,31 +236,6 @@ const AdminLogin = () => {
                 </span>
               )}
             </div>
-
-            {/* Remember Me */}
-            {/* <div className={styles.formOptions}>
-              <label className={styles.rememberMe}>
-                <input
-                  type="checkbox"
-                  checked={rememberMe}
-                  onChange={(e) =>
-                    setRememberMe(e.target.checked)
-                  }
-                />
-
-                Remember me
-              </label>
-
-              <button
-                type="button"
-                className={styles.forgotPassword}
-                onClick={() =>
-                  alert("Forgot password feature will be added later.")
-                }
-              >
-                Forgot Password?
-              </button>
-            </div> */}
 
             {/* General Error */}
             {errors.general && (

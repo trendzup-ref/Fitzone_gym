@@ -7,7 +7,7 @@ const RecentMembers = ({ members = [] }) => {
   const navigate = useNavigate();
 
   const handleView = (id) => {
-    navigate(`/members/${id}`);
+    navigate(`/admin/members/${id}`);
   };
 
   const formatDate = (date) => {

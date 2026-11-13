@@ -30,11 +30,11 @@ return ( <header className={styles.navbar}>
   <div className={styles.rightSection}>
 
     {/* Notification */}
-
+{/* 
     <button className={styles.notification}>
       <FaBell />
       <span className={styles.notificationBadge}>3</span>
-    </button>
+    </button> */}
 
     {/* Profile */}
 

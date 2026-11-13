@@ -236,7 +236,7 @@ const EditTrainer = () => {
       const response = await updateTrainer(id, trainerData);
 
       if (response.success) {
-        alert("Trainer details updated successfully!");
+        toast.success("Trainer details updated successfully!");
 
         navigate("/admin/trainers");
       }

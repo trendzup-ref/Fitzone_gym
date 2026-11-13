@@ -10,7 +10,7 @@
 
   background:
     linear-gradient(rgba(0, 0, 0, 0.72), rgba(0, 0, 0, 0.72)),
-    url("../assets/aboutMain.png") center/cover no-repeat;
+    url("../assets/heroImg.png") center/cover no-repeat;
 }
 
 .bannerContent h1 {

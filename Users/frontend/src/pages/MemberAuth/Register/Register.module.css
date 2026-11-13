@@ -1,0 +1,312 @@
+.registerPage {
+  min-height: 100vh;
+  background: #080808;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 35px 20px;
+  font-family: Arial, sans-serif;
+  color: #fff;
+}
+
+.registerContainer {
+  width: 100%;
+  max-width: 1150px;
+  min-height: 720px;
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  background: #111;
+  border: 1px solid #292929;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 15px 60px rgba(0, 0, 0, 0.5);
+}
+
+/* LEFT SECTION */
+
+.registerLeft {
+  padding: 45px;
+  background:
+    radial-gradient(
+      circle at 20% 20%,
+      rgba(255, 37, 63, 0.2),
+      transparent 40%
+    ),
+    linear-gradient(145deg, #191919, #080808);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-right: 1px solid #292929;
+}
+
+.registerLogo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #fff;
+  text-decoration: none;
+  font-size: 25px;
+  font-weight: 800;
+}
+
+.registerLogo svg {
+  color: #ff253f;
+  font-size: 32px;
+}
+
+.registerLogo strong {
+  color: #ff253f;
+}
+
+.registerLeftContent {
+  margin-top: 30px;
+}
+
+.registerTag {
+  display: inline-block;
+  padding: 9px 13px;
+  background: rgba(255, 37, 63, 0.15);
+  border-left: 3px solid #ff253f;
+  color: #ff4057;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.registerLeftContent h1 {
+  font-size: 43px;
+  line-height: 1.2;
+  margin: 25px 0 18px;
+  font-weight: 800;
+}
+
+.registerLeftContent h1 span {
+  color: #ff253f;
+}
+
+.registerLeftContent p {
+  color: #aaa;
+  font-size: 15px;
+  line-height: 1.8;
+  max-width: 390px;
+}
+
+.registerFeatures {
+  margin-top: 35px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.registerFeatures div {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  color: #ddd;
+  font-size: 14px;
+}
+
+.registerFeatures svg {
+  color: #ff253f;
+  font-size: 19px;
+}
+
+.registerCopyright {
+  color: #777;
+  font-size: 12px;
+}
+
+/* RIGHT SECTION */
+
+.registerRight {
+  padding: 40px 55px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.registerFormHeader {
+  margin-bottom: 25px;
+}
+
+.registerFormHeader h2 {
+  font-size: 30px;
+  margin: 15px 0 8px;
+}
+
+.registerFormHeader p {
+  color: #999;
+  font-size: 14px;
+}
+
+/* FORM */
+
+.registerRight form {
+  display: flex;
+  flex-direction: column;
+  gap: 17px;
+}
+
+.registerRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.registerInputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.registerInputGroup label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #ddd;
+}
+
+.registerInput,
+.registerInputGroup select {
+  height: 46px;
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  padding: 0 13px;
+  background: #191919;
+  border: 1px solid #333;
+  border-radius: 6px;
+  transition: 0.3s;
+  color: #fff;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.registerInput:focus-within,
+.registerInputGroup select:focus {
+  border-color: #ff253f;
+  box-shadow: 0 0 0 2px rgba(255, 37, 63, 0.1);
+  outline: none;
+}
+
+.registerInput svg {
+  color: #ff4057;
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
+.registerInput input {
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #fff;
+  font-size: 13px;
+  min-width: 0;
+}
+
+.registerInput input::placeholder {
+  color: #777;
+}
+
+.registerInputGroup select {
+  outline: none;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.registerInputGroup select option {
+  background: #191919;
+}
+
+.passwordToggle {
+  background: transparent;
+  border: none;
+  color: #aaa;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* SUBMIT BUTTON */
+
+.registerSubmit {
+  height: 48px;
+  margin-top: 8px;
+  background: #ff253f;
+  border: none;
+  border-radius: 6px;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.registerSubmit span {
+  margin-left: 8px;
+  font-size: 18px;
+}
+
+.registerSubmit:hover {
+  background: #dc102b;
+  transform: translateY(-2px);
+}
+
+/* LOGIN LINK */
+
+.registerLoginLink {
+  text-align: center;
+  color: #999;
+  font-size: 13px;
+  margin-top: 23px;
+}
+
+.registerLoginLink a {
+  color: #ff4057;
+  font-weight: 700;
+  text-decoration: none;
+  margin-left: 5px;
+}
+
+.registerLoginLink a:hover {
+  text-decoration: underline;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 850px) {
+  .registerContainer {
+    grid-template-columns: 1fr;
+    max-width: 550px;
+  }
+
+  .registerLeft {
+    display: none;
+  }
+
+  .registerRight {
+    padding: 40px 30px;
+  }
+}
+
+@media (max-width: 480px) {
+  .registerPage {
+    padding: 15px;
+  }
+
+  .registerRight {
+    padding: 30px 18px;
+  }
+
+  .registerRow {
+    grid-template-columns: 1fr;
+  }
+
+  .registerFormHeader h2 {
+    font-size: 25px;
+  }
+}

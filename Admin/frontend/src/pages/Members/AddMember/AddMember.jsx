@@ -1,6 +1,7 @@
 import { useState, useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { AdminContext } from "../../../context/AdminContext";
+import { toast } from "react-toastify";
 
 import {
   FaUser,
@@ -188,15 +189,15 @@ const AddMember = () => {
       const response = await addMember(data);
 
       if (response.success) {
-        alert("Member added successfully!");
+        toast.success("Member added successfully!");
         navigate("/admin/members");
       } else {
-        alert(response.message || "Failed to add member.");
+        toast.error(response.message || "Failed to add member.");
       }
     } catch (error) {
       console.error("Add member error:", error);
 
-      alert(error.message || "Failed to add member.");
+      toast.error(error.message || "Failed to add member.");
     } finally {
       setLoading(false);
     }
@@ -244,6 +245,7 @@ const AddMember = () => {
                 type="text"
                 name="name"
                 placeholder="Enter full name"
+                autoComplete="off"
                 value={formData.name}
                 onChange={handleChange}
               />
@@ -261,6 +263,7 @@ const AddMember = () => {
                 type="email"
                 name="email"
                 placeholder="Enter email address"
+                autoComplete="off"
                 value={formData.email}
                 onChange={handleChange}
               />
@@ -278,6 +281,7 @@ const AddMember = () => {
                 type="tel"
                 name="phone"
                 placeholder="Enter 10-digit phone number"
+                autoComplete="off"
                 value={formData.phone}
                 maxLength={10}
                 onChange={handleChange}

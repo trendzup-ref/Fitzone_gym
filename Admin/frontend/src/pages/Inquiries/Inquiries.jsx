@@ -1,5 +1,6 @@
 import { useState, useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 import {
   FaSearch,
@@ -108,12 +109,19 @@ const Inquiries = () => {
               : item
           )
         );
+
+        toast.success("Inquiry status updated successfully!");
       } else {
-        alert(response.message || "Failed to update inquiry status.");
+        toast.error(
+          response.message || "Failed to update inquiry status."
+        );
       }
     } catch (error) {
       console.error("Update Inquiry Error:", error);
-      alert(error.message || "Failed to update inquiry status.");
+
+      toast.error(
+        error.message || "Failed to update inquiry status."
+      );
     } finally {
       setUpdatingId(null);
     }
@@ -136,12 +144,19 @@ const Inquiries = () => {
         setInquiries((prev) =>
           prev.filter((item) => item._id !== id)
         );
+
+        toast.success("Inquiry deleted successfully!");
       } else {
-        alert(response.message || "Failed to delete inquiry.");
+        toast.error(
+          response.message || "Failed to delete inquiry."
+        );
       }
     } catch (error) {
       console.error("Delete Inquiry Error:", error);
-      alert(error.message || "Failed to delete inquiry.");
+
+      toast.error(
+        error.message || "Failed to delete inquiry."
+      );
     } finally {
       setDeletingId(null);
     }

@@ -1,6 +1,6 @@
 import { useState, useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
-
+import { toast } from "react-toastify";
 import {
   FaIdCard,
   FaCheckCircle,
@@ -91,12 +91,12 @@ const Membership = () => {
           prev.filter((membership) => membership._id !== id)
         );
 
-        alert("Membership deleted successfully!");
+        toast.success("Membership deleted successfully!");
       } else {
-        alert(response.message || "Failed to delete membership.");
+        toast.error(response.message || "Failed to delete membership.");
       }
     } catch (error) {
-      alert(error.message || "Something went wrong.");
+      toast.error(error.message || "Something went wrong.");
     }
   };
 

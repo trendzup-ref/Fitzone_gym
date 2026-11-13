@@ -15,6 +15,7 @@ import {
 
 import { AdminContext } from "../../../context/AdminContext";
 import styles from "./AddTrainer.module.css";
+import { toast } from "react-toastify";
 
 const AddTrainer = () => {
   const navigate = useNavigate();
@@ -160,7 +161,7 @@ const AddTrainer = () => {
       const response = await addTrainer(trainerData);
 
       if (response.success) {
-        alert("Trainer added successfully!");
+        toast.success("Trainer added successfully!");
 
         navigate("/admin/trainers");
       }

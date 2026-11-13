@@ -8,6 +8,8 @@ import {
   FaPaperPlane,
 } from "react-icons/fa";
 
+import { toast } from "react-toastify"
+
 import style from "./Contact.module.css";
 import Footer from "../components/home/Footer";
 
@@ -22,7 +24,7 @@ const Contact = () => {
     message: "",
   });
 
-  const [status, setStatus] = useState("");
+  
   const [loading, setLoading] = useState(false);
 
   // Handle Input Change
@@ -36,57 +38,50 @@ const Contact = () => {
   };
 
   // Submit Inquiry
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+ const handleSubmit = async (e) => {
+  e.preventDefault();
 
-    try {
-      setLoading(true);
-      setStatus("");
+  try {
+    setLoading(true);
 
-      const response = await fetch(
-        `${BASE_URL}/api/inquiry/add`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(formData),
-        }
+    const response = await fetch(`${BASE_URL}/api/inquiry/add`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    });
+
+    const data = await response.json();
+
+    if (!response.ok || !data.success) {
+      throw new Error(
+        data.message || "Something went wrong. Please try again."
       );
-
-      const data = await response.json();
-
-      console.log("Inquiry Response:", data);
-
-      if (!response.ok || !data.success) {
-        throw new Error(
-          data.message || "Something went wrong. Please try again."
-        );
-      }
-
-      setStatus(
-        data.message || "Your inquiry has been submitted successfully!"
-      );
-
-      // Reset Form
-      setFormData({
-        name: "",
-        email: "",
-        phone: "",
-        subject: "",
-        message: "",
-      });
-
-    } catch (error) {
-      console.error("Inquiry Submission Error:", error);
-
-      setStatus(
-        error.message || "Failed to connect to the server."
-      );
-    } finally {
-      setLoading(false);
     }
-  };
+
+    // Success Toast
+    toast.success(data.message || "Your inquiry has been submitted successfully!");
+
+    // Reset Form
+    setFormData({
+      name: "",
+      email: "",
+      phone: "",
+      subject: "",
+      message: "",
+    });
+
+  } catch (error) {
+    console.error("Inquiry Submission Error:", error);
+
+    // Error Toast
+    toast.error(error.message || "Failed to connect to the server.");
+
+  } finally {
+    setLoading(false);
+  }
+};
 
   return (
     <>
@@ -193,6 +188,7 @@ const Contact = () => {
                     type="text"
                     name="name"
                     placeholder="Enter your name"
+                    autoComplete="off"
                     value={formData.name}
                     onChange={handleChange}
                     required
@@ -206,6 +202,7 @@ const Contact = () => {
                     type="email"
                     name="email"
                     placeholder="Enter your email"
+                    autoComplete="off"
                     value={formData.email}
                     onChange={handleChange}
                     required
@@ -221,6 +218,7 @@ const Contact = () => {
                     type="tel"
                     name="phone"
                     placeholder="Enter phone number"
+                    autoComplete="off"
                     value={formData.phone}
                     onChange={handleChange}
                     pattern="[0-9]{10}"
@@ -279,16 +277,6 @@ const Contact = () => {
 
                 {!loading && <FaPaperPlane />}
               </button>
-
-              {status && (
-                <p
-                  className={style.successMessage}
-                  role="status"
-                >
-                  {status}
-                </p>
-              )}
-
             </form>
           </div>
         </div>

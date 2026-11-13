@@ -16,6 +16,12 @@ const memberSchema = new mongoose.Schema(
       trim: true,
     },
 
+    password : {
+      type : String ,
+      default : null ,
+      select : false 
+    } ,
+
     phone: {
       type: String,
       required: [true, "Phone number is required"],

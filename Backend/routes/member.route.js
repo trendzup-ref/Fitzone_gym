@@ -13,6 +13,7 @@ import {
 import adminAuth from "../middleware/adminAuth.middleware.js";
 import upload from "../middleware/multer.js";
 
+
 const memberRouter = express.Router();
 
 // All routes are protected

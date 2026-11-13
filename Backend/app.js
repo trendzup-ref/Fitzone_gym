@@ -12,6 +12,9 @@ import membershipRouter from "./routes/membership.route.js";
 import trainerRouter from "./routes/trainer.route.js";
 import inquiryRouter from "./routes/inquiry.route.js";
 import dashboardRouter from "./routes/dashboard.route.js";
+import memberAuthRouter from "./routes/memberAuth.route.js";
+import memberDashboardRouter from "./routes/memberDashboard.route.js";
+import announcementRouter from "./routes/announcement.route.js";
 
 dotenv.config();
 
@@ -55,6 +58,9 @@ app.use("/api/membership", membershipRouter);
 app.use("/api/trainer", trainerRouter);
 app.use("/api/inquiry", inquiryRouter);
 app.use("/api/dashboard", dashboardRouter);
+app.use("/api/member-auth" , memberAuthRouter)
+app.use("/api/member-dashboard" , memberDashboardRouter)
+app.use("/api/announcements", announcementRouter);
 
 // Error Handling
 app.use((err, req, res, next) => {

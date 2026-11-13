@@ -7,7 +7,7 @@ const RecentInquiries = ({ inquiries = [] }) => {
   const navigate = useNavigate();
 
   const handleView = (id) => {
-    navigate(`/inquiries/${id}`);
+    navigate(`/admin/inquiries/${id}`);
   };
 
   const formatDate = (date) => {

@@ -15,9 +15,10 @@ import gym5 from "./gym5.png"
 import gym6 from "./gym6.png"
 import gym7 from "./gym7.png"
 import gym8 from "./gym8.png"
+import aboutMain from "./aboutMain.jpeg"
 
 
 
 export const assest = {
-    logo , user , rightArrow ,  heroimg , abouthomeImg , men1 , men2 , women , women2 , gym1 , gym2 , gym3, gym4 , gym5 , gym6 , gym7 , gym8
+    logo , user , rightArrow ,  heroimg , abouthomeImg , men1 , men2 , women , women2 , gym1 , gym2 , gym3, gym4 , gym5 , gym6 , gym7 , gym8 , aboutMain
 }
