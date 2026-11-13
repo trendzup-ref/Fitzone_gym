@@ -24,9 +24,9 @@ const app = express();
 const allowedOrigins = [
   "http://localhost:5173",
   "http://localhost:5174",
-  process.env.ADMIN_URL,
-  process.env.USER_URL,
-].filter(Boolean);
+  "https://YOUR-ADMIN-DOMAIN.vercel.app",
+  "https://YOUR-USER-DOMAIN.vercel.app"
+];
 
 app.use(
   cors({

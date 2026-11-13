@@ -13,7 +13,7 @@ import {
 import styles from "./Login.module.css";
 
 const API_URL =
-  import.meta.env.VITE_BACKEND_URL || "http://localhost:4000/api";
+  import.meta.env.VITE_BACKEND_URL || "https://fitzone-gym-one-peach.vercel.app/api";
 
 const Login = () => {
   const navigate = useNavigate();

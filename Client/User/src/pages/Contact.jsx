@@ -14,7 +14,7 @@ import style from "./Contact.module.css";
 import Footer from "../components/home/Footer";
 
 const Contact = () => {
-  const BASE_URL = "http://localhost:4000";
+  const BASE_URL = "https://fitzone-gym-one-peach.vercel.app/api";
 
   const [formData, setFormData] = useState({
     name: "",

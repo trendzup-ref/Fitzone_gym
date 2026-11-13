@@ -7,7 +7,7 @@ import "./Navbar.css";
 import { FaDumbbell } from "react-icons/fa";
 
 const API_URL =
-  import.meta.env.VITE_BACKEND_URL || "http://localhost:4000/api";
+  import.meta.env.VITE_BACKEND_URL || "https://fitzone-gym-one-peach.vercel.app/api";
 
 function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
