@@ -24,18 +24,22 @@ const app = express();
 const allowedOrigins = [
   "http://localhost:5173",
   "http://localhost:5174",
-  "https://YOUR-ADMIN-DOMAIN.vercel.app",
-  "https://YOUR-USER-DOMAIN.vercel.app"
+
+  // Admin Frontend
+  "https://fitzone-gym-yuwf.vercel.app",
+
+  // User Frontend
+  "https://fitzone-gym-yuwf.vercel.app"
 ];
 
 app.use(
   cors({
     origin: (origin, callback) => {
       if (!origin || allowedOrigins.includes(origin)) {
-        return callback(null, true);
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
       }
-
-      return callback(new Error("Not allowed by CORS"));
     },
     credentials: true,
     methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
