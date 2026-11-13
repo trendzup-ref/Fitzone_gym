@@ -4,9 +4,9 @@ import cors from "cors";
 import cookieParser from "cookie-parser";
 
 import { connectDB } from "./mongodb/db.js";
+
 import contactRoutes from "./routes/contactRoute.js";
 import adminRouter from "./routes/admin.route.js";
-import createAdmin from "./config/createAdmin.js";
 import memberRouter from "./routes/member.route.js";
 import membershipRouter from "./routes/membership.route.js";
 import trainerRouter from "./routes/trainer.route.js";
@@ -18,27 +18,24 @@ import announcementRouter from "./routes/announcement.route.js";
 
 dotenv.config();
 
-await connectDB();
-await createAdmin();
-
 const app = express();
-const PORT = process.env.PORT || 4000;
 
-// Allowed Frontend Origins
+// CORS
 const allowedOrigins = [
   "http://localhost:5173",
   "http://localhost:5174",
-];
+  process.env.ADMIN_URL,
+  process.env.USER_URL,
+].filter(Boolean);
 
-// CORS Configuration
 app.use(
   cors({
     origin: (origin, callback) => {
       if (!origin || allowedOrigins.includes(origin)) {
-        callback(null, true);
-      } else {
-        callback(new Error("Not allowed by CORS"));
+        return callback(null, true);
       }
+
+      return callback(new Error("Not allowed by CORS"));
     },
     credentials: true,
     methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
@@ -46,9 +43,21 @@ app.use(
   })
 );
 
-// Middleware
 app.use(express.json());
 app.use(cookieParser());
+
+// Database middleware
+app.use(async (req, res, next) => {
+  try {
+    await connectDB();
+    next();
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: "Database connection failed",
+    });
+  }
+});
 
 // Routes
 app.use("/api/contact", contactRoutes);
@@ -58,11 +67,19 @@ app.use("/api/membership", membershipRouter);
 app.use("/api/trainer", trainerRouter);
 app.use("/api/inquiry", inquiryRouter);
 app.use("/api/dashboard", dashboardRouter);
-app.use("/api/member-auth" , memberAuthRouter)
-app.use("/api/member-dashboard" , memberDashboardRouter)
+app.use("/api/member-auth", memberAuthRouter);
+app.use("/api/member-dashboard", memberDashboardRouter);
 app.use("/api/announcements", announcementRouter);
 
-// Error Handling
+// Test API
+app.get("/", (req, res) => {
+  res.json({
+    success: true,
+    message: "Fitzone Gym API is running",
+  });
+});
+
+// Error handling
 app.use((err, req, res, next) => {
   console.error(err);
 
@@ -72,16 +89,13 @@ app.use((err, req, res, next) => {
   });
 });
 
-// Start Server
-const startServer = async () => {
-  try {
-    app.listen(PORT, () => {
-      console.log(`Server is running on port ${PORT}`);
-    });
-  } catch (err) {
-    console.error("Server startup failed:", err);
-    process.exit(1);
-  }
-};
+export default app;
 
-startServer();
+// Local development
+if (!process.env.VERCEL) {
+  const PORT = process.env.PORT || 4000;
+
+  app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
+  });
+}

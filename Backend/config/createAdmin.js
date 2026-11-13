@@ -5,7 +5,10 @@ const createAdmin = async () => {
     const adminEmail = process.env.ADMIN_EMAIL;
     const adminPassword = process.env.ADMIN_PASSWORD;
 
-    // Check admin already exists
+    if (!adminEmail || !adminPassword) {
+      throw new Error("ADMIN_EMAIL or ADMIN_PASSWORD is missing");
+    }
+
     const existingAdmin = await Admin.findOne({
       email: adminEmail,
     });
@@ -15,7 +18,6 @@ const createAdmin = async () => {
       return;
     }
 
-    // Create admin
     const admin = await Admin.create({
       name: "Gym Admin",
       email: adminEmail,
@@ -23,8 +25,10 @@ const createAdmin = async () => {
     });
 
     console.log("Admin created successfully:", admin.email);
+
   } catch (error) {
     console.error("Admin creation failed:", error.message);
+    throw error;
   }
 };
 

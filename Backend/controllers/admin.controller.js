@@ -5,7 +5,6 @@ export const adminLogin = async (req, res) => {
   try {
     const { email, password } = req.body;
 
-    // 1. Validate input
     if (!email || !password) {
       return res.status(400).json({
         success: false,
@@ -13,7 +12,6 @@ export const adminLogin = async (req, res) => {
       });
     }
 
-    // 2. Find admin
     const admin = await Admin.findOne({
       email: email.toLowerCase().trim(),
     }).select("+password");
@@ -25,7 +23,6 @@ export const adminLogin = async (req, res) => {
       });
     }
 
-    // 3. Verify password
     const isMatch = await admin.comparePassword(password);
 
     if (!isMatch) {
@@ -35,7 +32,10 @@ export const adminLogin = async (req, res) => {
       });
     }
 
-    // 4. Generate JWT
+    if (!process.env.JWT_SECRET) {
+      throw new Error("JWT_SECRET is missing");
+    }
+
     const token = jwt.sign(
       {
         id: admin._id,
@@ -47,16 +47,16 @@ export const adminLogin = async (req, res) => {
       }
     );
 
-    // 5. Store token in HttpOnly cookie
+    const isProduction = process.env.NODE_ENV === "production";
+
     res.cookie("adminToken", token, {
       httpOnly: true,
-      secure: process.env.NODE_ENV === "production",
-      sameSite: "lax",
+      secure: isProduction,
+      sameSite: isProduction ? "none" : "lax",
       maxAge: 24 * 60 * 60 * 1000,
       path: "/",
     });
 
-    // 6. Send response
     return res.status(200).json({
       success: true,
       message: "Admin login successful",
@@ -79,11 +79,12 @@ export const adminLogin = async (req, res) => {
 
 export const adminLogout = async (req, res) => {
   try {
-    // Clear admin authentication cookie
+    const isProduction = process.env.NODE_ENV === "production";
+
     res.clearCookie("adminToken", {
       httpOnly: true,
-      secure: process.env.NODE_ENV === "production",
-      sameSite: "lax",
+      secure: isProduction,
+      sameSite: isProduction ? "none" : "lax",
       path: "/",
     });
 
