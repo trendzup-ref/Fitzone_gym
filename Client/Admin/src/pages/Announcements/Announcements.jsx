@@ -49,7 +49,7 @@ const Announcements = () => {
       setLoading(true);
 
       const response = await fetch(
-        `${API_URL}/announcements/list`,
+        `${API_URL}/api/announcements/list`,
         {
           method: "GET",
           credentials: "include",
