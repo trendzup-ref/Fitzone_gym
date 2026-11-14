@@ -29,7 +29,7 @@ const allowedOrigins = [
   "https://fitzone-gym-yuwf.vercel.app",
 
   // User Frontend
-  "https://fitzone-gym-yuwf.vercel.app"
+  "https://fitzone-gym-4aps.vercel.app"
 ];
 
 app.use(
